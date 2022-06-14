@@ -26,18 +26,23 @@ class Users extends Component {
 
 	render() {
 		const { users } = this.state
-		// const { login, avatar_url, html_url } = this.state.users
 
 		return (
 			<Fragment>
-				{
-					users.map( user =>
+				<div style={userStyle}>
+					{users.map( user =>
 						<UserItem key={user.id} singleUser={user} />
-					)
-				}
+					)}
+				</div>
 			</Fragment>
 		)
 	}
+}
+
+const userStyle = {
+	display: 'grid',
+	gridTemplateColumns: 'repeat(3, 1fr)',
+	gridGap: '1rem'
 }
 
 export default Users

@@ -16,7 +16,9 @@ class App extends Component {
 					// title={numbers}
 				/>
 
-				<Users />
+				<div className="container">
+					<Users />
+				</div>
 			</div>
 		)
 	}

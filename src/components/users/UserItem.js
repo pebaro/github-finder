@@ -24,13 +24,10 @@ class UserItem extends Component {
 
 					<h3>{login}</h3>
 
-					<a
-						href={html_url}
+					<a 	href={html_url}
 						className="btn btn-dark btn-sm my-1"
 						target='_blank'
-					>
-						More info
-					</a>
+					>More info</a>
 				</div>
 			</Fragment>
 		)
