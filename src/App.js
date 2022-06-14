@@ -6,14 +6,11 @@ import './app.css'
 
 class App extends Component {
 	render() {
-		const numbers = [1, 2, 3, 4]
-		
 		return (
 			<div className="App">
 				<Navbar
 					icon="fab fa-github"
 					title='Github Finder'
-					// title={numbers}
 				/>
 
 				<div className="container">
