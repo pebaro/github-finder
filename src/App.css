@@ -7,6 +7,7 @@
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --grey: #777;
 }
 
 * {
@@ -22,7 +23,17 @@ body {
   background-color: #fff;
   color: #333;
 }
-
+.alert-close {
+	cursor: pointer;
+	font-size: 200%;
+	font-weight: 100;
+	font-family: sans-serif;
+	color: var(--grey);
+	padding: 5px;
+	margin: -300% 30px;
+	position: absolute;
+	right: 30px;
+}
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -96,6 +107,11 @@ img {
 
 .text-left {
   text-align: left;
+}
+
+.alert-icon {
+	font-size: 110%;
+	margin-right: 8px;
 }
 
 /* Center All */
@@ -238,7 +254,9 @@ img {
 }
 
 .alert {
-  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1.2rem;
   margin: 1rem 0;
   opacity: 0.9;
   background: var(--light-color);
