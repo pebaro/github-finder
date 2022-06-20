@@ -108,7 +108,9 @@ img {
 .text-left {
   text-align: left;
 }
-
+.pull-right {
+	float: right;
+}
 .alert-icon {
 	font-size: 110%;
 	margin-right: 8px;
@@ -438,4 +440,7 @@ table th {
 }
 .profile-label {
 	font-weight: 600;
+}
+.hireable {
+	margin-left: 35px;;
 }

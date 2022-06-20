@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Spinner from '../layout/Spinner'
 import PropTypes from 'prop-types'
 
+import Repos from '../repos/Repos'
+
 export class User extends Component {
 	componentDidMount() {
 		this.props.triggerGetUser(this.props.match.params.login)
@@ -12,6 +14,7 @@ export class User extends Component {
 	static propTypes = {
 		loading: PropTypes.bool.isRequired,
 		user: PropTypes.object.isRequired,
+		repos: PropTypes.array.isRequired,
 		triggerGetUser: PropTypes.func.isRequired,
 		triggerGetUserRepos: PropTypes.func.isRequired
 	}
@@ -32,22 +35,24 @@ export class User extends Component {
 			hireable
 		} = this.props.user
 	
-		const { loading } = this.props
+		const { loading, repos } = this.props
 
 		if (loading) return <Spinner />
 
 		return (
 			<Fragment>
-				<Link to='/' className='btn btn-light'>
+				<Link
+					to='/'
+					className='btn btn-light'
+				>
 					Back To Search
 				</Link>
-				Hireable: {' '}
 				{
 					hireable
-						? (<i className="fas fa-check text-sucess" /> )
-						: (<i className="fas fa-times-circle text-danger" /> )
+						? <span className='hireable'>Hireable: <i className="fas fa-check text-sucess" /></span>
+						: <span className='hireable'>Hireable: <i className="fas fa-times-circle text-danger" /></span>
 				}
-				<div className="car grid-2">
+				<div className="card grid-2">
 					<div className="all-center">
 						<img
 							src={avatar_url}
@@ -59,6 +64,10 @@ export class User extends Component {
 						{
 							location && <p>Location: {location}</p>
 						}
+						<span className="text-left">
+
+						</span>
+		
 					</div>
 					<div>
 						{
@@ -98,7 +107,10 @@ export class User extends Component {
 								{
 									blog &&
 									<Fragment>
-											<span className='profile-label'>Website: </span>  {blog}
+											<span className='profile-label'>Website: </span>  
+											<a href={blog} target='_blank' rel="noreferrer">
+												{blog}
+											</a>
 									</Fragment>
 								}
 							</li>
@@ -120,6 +132,8 @@ export class User extends Component {
 						Public Gists: {public_gists}
 					</div>
 				</div>
+
+				<Repos repos={repos} />
 			</Fragment>
 		)
 	}
